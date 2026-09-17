@@ -65,11 +65,13 @@ public class SinglyListClass {
 		}
 	}
 	public void addFirst(Integer e) {
+		this.size++;
 		Node newElement = new Node(e, this.head);
 		// La tête devient le nouveau élément
 		this.head = newElement;
 	}
 	public void addLast(Integer e) {
+		this.size++;
 		Node newElement = new Node(e, null);
 		if (head != null) {
 			// On fait en sorte que le next du dernier noeud soit le nouveau élément
@@ -85,6 +87,8 @@ public class SinglyListClass {
 	}
 	public Integer removeFirst() {
 		if (head != null) {
+			this.size--;
+			
 			// On récupère le premier élément
 			Integer firstElement = head.getElement();
 			// Le deuxième noeud prend la place du premier
@@ -94,6 +98,19 @@ public class SinglyListClass {
 			head = secondNode;
 			// On retourne le premier élément qui à été enlever
 			return firstElement;
+		} else {
+			return null;
+		}
+	}
+	
+	// Question 1.2 - 1
+	public Integer algorithme_avantDernierNoeud() {
+		if (head != null && head.getNext() != null) {
+			Node current = head;
+			while (current.getNext().getNext() != null) {
+				current = current.getNext();
+			}
+			return current.getElement();
 		} else {
 			return null;
 		}
