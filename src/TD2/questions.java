@@ -12,7 +12,20 @@ public class questions {
 		chain.addLast(2);
 		// On devrait avoir [8, 4, 9, 1, 5, 2]
 		System.out.println("taille: " + chain.size()); // taille 6
+		
+		System.out.println("Chaine actuelle: " + chain);
+		chain.algorithme_inverserChaine();
+		System.out.println("Chaine inversé: " + chain);
+		chain.algorithme_inverserChaine();
+		
 		System.out.println("avant dernier noeud: " + chain.algorithme_avantDernierNoeud()); // 5
 		
+		System.out.println("premier noeud: " + chain.first()); // 8
+		System.out.println("dernier noeud: " + chain.last()); // 2
+		
+		System.out.println("premier noeud (enlever): " + chain.removeFirst()); // 8
+		System.out.println("premier noeud (enlever): " + chain.removeFirst()); // 4
+		System.out.println("premier noeud (enlever): " + chain.removeFirst()); // 9
+		System.out.println("taille: " + chain.size()); // taille 3
 	}
 }

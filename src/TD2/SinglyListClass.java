@@ -103,6 +103,21 @@ public class SinglyListClass {
 		}
 	}
 	
+	public String toString() {
+		String str = "Chain[";
+		if (head != null) {
+			Node currentNode = head;
+			for (long i=1; i <= size; i++) {
+				str = str + currentNode.getElement();
+				if (i < size) { str = str + " "; }
+				currentNode = currentNode.getNext();
+			}
+		}
+		str = str+ "]";
+		
+		return str;
+	}
+	
 	// Question 1.2 - 1
 	public Integer algorithme_avantDernierNoeud() {
 		if (head != null && head.getNext() != null) {
@@ -115,4 +130,33 @@ public class SinglyListClass {
 			return null;
 		}
 	}
+	
+	// Question 1.2 - 2
+	public void algorithme_inverserChaine() {
+		if (size > 1) {
+			
+			Node previousNode = null;
+			Node currentNode = head;
+			Node nextNode = currentNode.getNext();
+			
+			while (nextNode != null) {
+				Node nextNodeTmp = nextNode.getNext();
+				
+				currentNode.setNext(previousNode);
+				nextNode.setNext(currentNode); // On inverse
+				
+				previousNode = currentNode;
+				currentNode = nextNode;
+				nextNode = nextNodeTmp;
+			}
+			
+			// On gère la fin de la chaine
+			currentNode.setNext(previousNode);
+			head = currentNode;
+		}
+	}
+	
+	// Question 1.2 - 3
+	
+	
 }
