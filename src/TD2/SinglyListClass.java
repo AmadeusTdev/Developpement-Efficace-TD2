@@ -26,6 +26,10 @@ public class SinglyListClass {
 		public void setNext(Node newNext) {
 			this.next = newNext;
 		}
+		
+		public String toString() {
+			return "(" + element + ")";
+		}
 	}
 	
 	// Private variables
@@ -108,7 +112,7 @@ public class SinglyListClass {
 		if (head != null) {
 			Node currentNode = head;
 			for (long i=1; i <= size; i++) {
-				str = str + currentNode.getElement();
+				str = str + currentNode.toString();
 				if (i < size) { str = str + " "; }
 				currentNode = currentNode.getNext();
 			}
